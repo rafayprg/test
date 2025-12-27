@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed!</title>
+    <link rel="stylesheet" href="/style.css"> <style>
+        :root { --primary-color: #d4af37; --card-bg: #1a1a1a; --heading-font: 'Playfair Display', serif; }
+        body { background-color: #000; color: #fff; font-family: sans-serif; }
+        .confirmation-container {
+            max-width: 800px;
+            margin: 120px auto 40px;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid var(--primary-color);
+        }
+        .confirmation-container h1 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 1rem; }
+        .order-details { text-align: left; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444; }
+        .btn { display: inline-block; padding: 10px 20px; background: var(--primary-color); color: #000; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <h1>Thank You, <span id="display-name">Customer</span>!</h1>
+        <p>Your order has been placed successfully.</p>
+        <p>Your Order ID is: <strong id="display-id">Loading...</strong></p>
+        <p>We will contact you shortly on <span id="display-phone">...</span> for verification.</p>
+        
+        <div class="order-details">
+            <h2>Order Summary</h2>
+            <p><strong>Product:</strong> <span id="display-product">...</span> (<span id="display-brand">...</span>)</p>
+            <p><strong>Price:</strong> $<span id="display-price">0.00</span></p>
+            <p><strong>Shipping to:</strong> <span id="display-address">...</span></p>
+        </div>
+        <a href="/" class="btn" style="margin-top: 2rem;">Back to Store</a>
+    </div>
+
+    <script>
+        // 1. Get the Order ID from the URL (e.g., /order-confirmation/123)
+        const pathSegments = window.location.pathname.split('/');
+        const orderId = pathSegments[pathSegments.length - 1];
+
+        // 2. Fetch the data from your new Express API
+        fetch(`/api/get-order/${orderId}`)
+            .then(response => response.json())
+            .then(order => {
+                // 3. Put the data into the HTML
+                document.getElementById('display-name').innerText = order.customer.name;
+                document.getElementById('display-id').innerText = order._id;
+                document.getElementById('display-phone').innerText = order.customer.phone;
+                document.getElementById('display-product').innerText = order.productName;
+                document.getElementById('display-brand').innerText = order.brand;
+                document.getElementById('display-price').innerText = order.price.toFixed(2);
+                document.getElementById('display-address').innerText = order.customer.address;
+            })
+            .catch(err => console.error("Could not load order details", err));
+    </script>
+</body>
+</html>
