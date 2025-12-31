@@ -51,23 +51,49 @@ app.post('/create-order', async (req, res) => {
             <head>
                 <meta charset="UTF-8">
                 <style>
-                    body { background-color: #111; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-                    .card { background: #1a1a1a; padding: 50px; border-radius: 15px; text-align: center; border: 1px solid #d4af37; max-width: 500px; }
-                    h1 { color: #d4af37; margin-bottom: 10px; }
-                    .details { text-align: left; margin: 20px 0; border-top: 1px solid #333; padding-top: 20px; }
-                    .btn { background: #d4af37; color: #000; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block; margin-top: 20px; }
-                    @media (max-width: 600px) {
-    body {
-        padding: 20px;    }
-    .card {
-        padding: 25px;         width: 100%;          box-sizing: border-box;     }
+                 body { 
+    background-color: #111; 
+    color: #fff; 
+    font-family: sans-serif; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0; 
+    padding: 15px;
+}
 
-    h1 {
-        font-size: 1.5rem;    }
+.card { 
+    background: #1a1a1a; 
+    padding: 30px;
+    border-radius: 15px; 
+    text-align: center; 
+    border: 1px solid #d4af37; 
+    width: 100%; 
+    max-width: 450px; 
+    box-sizing: border-box; 
+}
 
-    .btn {
-        width: 100%;          box-sizing: border-box;
-    }
+h1 { color: #d4af37; margin-bottom: 20px; font-size: 24px; }
+
+.details { 
+    text-align: left; 
+    margin: 20px 0; 
+    border-top: 1px solid #333; 
+    padding-top: 20px; 
+    font-size: 15px; 
+    line-height: 1.6;
+}
+
+.btn { 
+    background: #d4af37; 
+    color: #000; 
+    padding: 15px 30px; 
+    text-decoration: none; 
+    border-radius: 25px; 
+    font-weight: bold; 
+    display: block;
+    margin-top: 20px; 
 }
                 </style>
             </head>
