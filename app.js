@@ -49,53 +49,63 @@ app.post('/create-order', async (req, res) => {
             <!DOCTYPE html>
             <html lang="en">
             <head>
-                <meta charset="UTF-8">
-                <style>
-                 body { 
-    background-color: #111; 
-    color: #fff; 
-    font-family: sans-serif; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh; 
-    margin: 0; 
-    padding: 15px;
-}
+               <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <style>
+    body { 
+        background-color: #111; 
+        color: #fff; 
+        font-family: sans-serif; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        min-height: 100vh; 
+        margin: 0; 
+        padding: 10px; /* Small gap from screen edges */
+    }
 
-.card { 
-    background: #1a1a1a; 
-    padding: 30px;
-    border-radius: 15px; 
-    text-align: center; 
-    border: 1px solid #d4af37; 
-    width: 100%; 
-    max-width: 450px; 
-    box-sizing: border-box; 
-}
+    .card { 
+        background: #1a1a1a; 
+        padding: 25px; /* Reduced padding to give text more room */
+        border-radius: 15px; 
+        text-align: center; 
+        border: 1px solid #d4af37; 
+        width: 90%; /* Forces the card to be wide on mobile */
+        max-width: 450px; /* Prevents it from getting too huge on a computer */
+        box-sizing: border-box; 
+    }
 
-h1 { color: #d4af37; margin-bottom: 20px; font-size: 24px; }
+    h1 { 
+        color: #d4af37; 
+        margin-bottom: 15px; 
+        font-size: 1.8rem; /* Larger title */
+    }
 
-.details { 
-    text-align: left; 
-    margin: 20px 0; 
-    border-top: 1px solid #333; 
-    padding-top: 20px; 
-    font-size: 15px; 
-    line-height: 1.6;
-}
+    p {
+        font-size: 1.1rem; /* Increases general text size */
+        line-height: 1.5;
+    }
 
-.btn { 
-    background: #d4af37; 
-    color: #000; 
-    padding: 15px 30px; 
-    text-decoration: none; 
-    border-radius: 25px; 
-    font-weight: bold; 
-    display: block;
-    margin-top: 20px; 
-}
-                </style>
+    .details { 
+        text-align: left; 
+        margin: 20px 0; 
+        border-top: 1px solid #333; 
+        padding-top: 20px; 
+    }
+
+    .btn { 
+        background: #d4af37; 
+        color: #000; 
+        padding: 15px 0; /* Vertical padding */
+        text-decoration: none; 
+        border-radius: 10px; 
+        font-weight: bold; 
+        display: block; /* Makes button full width of the card */
+        width: 100%;
+        margin-top: 20px;
+        font-size: 1.1rem;
+    }
+</style>
             </head>
             <body>
                 <div class="card">
